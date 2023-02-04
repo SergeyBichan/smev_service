@@ -17,7 +17,7 @@ import java.util.concurrent.Future;
 
 @Service
 @RequiredArgsConstructor
-public class InfoRequestServiceImpl implements InfoResponseService {
+public class InfoResponseServiceImpl implements InfoResponseService {
     private final InfoRequestRepo infoRequestRepo;
     private final PenaltyRepo penaltyRepo;
     private final InfoResponseRepo infoResponseRepo;
