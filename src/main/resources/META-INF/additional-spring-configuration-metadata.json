@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "h2.tcp.enabled",
+      "type": "java.lang.String",
+      "description": "Description for h2.tcp.enabled."
+  }
+] }
