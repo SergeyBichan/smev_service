@@ -8,17 +8,17 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import ru.intervale.smev.model.InformationRequest;
 import ru.intervale.smev.model.InformationResponse;
-import ru.intervale.smev.service.InfoResponseService;
+import ru.intervale.smev.service.impl.InfoResponseServiceImpl;
 
 
 @RequiredArgsConstructor
 @RestController
 public class SmevController {
-    private final InfoResponseService infoResponseService;
+    private final InfoResponseServiceImpl infoResponseServiceImpl;
 
 
     @PostMapping("/info")
     public ResponseEntity<InformationResponse> sendRequestFromAdapter(@RequestBody InformationRequest request) throws Exception {
-        return new ResponseEntity<>(infoResponseService.getInfoAboutPenalty(request), HttpStatus.OK);
+        return new ResponseEntity<>(infoResponseServiceImpl.getInfoAboutPenalty(request), HttpStatus.OK);
     }
 }

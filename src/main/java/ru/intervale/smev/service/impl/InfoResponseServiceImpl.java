@@ -10,6 +10,7 @@ import ru.intervale.smev.repo.PenaltyRepo;
 import ru.intervale.smev.service.InfoResponseService;
 import ru.intervale.smev.utils.Worker;
 
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
@@ -24,7 +25,7 @@ public class InfoResponseServiceImpl implements InfoResponseService {
 
 
     @Override
-    public InformationResponse getInfoAboutPenalty(InformationRequest request) throws Exception {
+    public InformationResponse getInfoAboutPenalty(InformationRequest request) throws ExecutionException, InterruptedException {
         System.out.println("main " + Thread.currentThread().getName());
         Worker worker = new Worker(infoRequestRepo,penaltyRepo,infoResponseRepo,request );
         ExecutorService service = Executors.newFixedThreadPool(3);
