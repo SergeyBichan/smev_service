@@ -1,5 +1,6 @@
 package ru.intervale.smev.utils;
 
+import lombok.extern.log4j.Log4j2;
 import ru.intervale.smev.model.InformationRequest;
 import ru.intervale.smev.model.InformationResponse;
 import ru.intervale.smev.model.Penalty;
@@ -9,6 +10,7 @@ import ru.intervale.smev.repo.PenaltyRepo;
 
 import java.util.concurrent.Callable;
 
+@Log4j2
 public class Worker implements Callable<InformationResponse> {
 
     private final InfoRequestRepo infoRequestRepo;
@@ -26,11 +28,15 @@ public class Worker implements Callable<InformationResponse> {
 
     @Override
     public InformationResponse call()  {
+        log.info("Worker in progress..");
         infoRequestRepo.save(informationRequest);
-        System.out.println("Worker in progress...");
+        log.info("Information request: " + informationRequest);
         System.out.println("Worker" + Thread.currentThread().getName());
 
         InformationRequest temp = infoRequestRepo.findByVehicleCertificate(informationRequest.getVehicleCertificate());
+
+        log.info("InformationRequest in call method is: " + temp);
+
         Penalty penalty = penaltyRepo.findPenaltyByVehicleCertificate(temp.getVehicleCertificate());
         InformationResponse tempResponse = new InformationResponse();
 
