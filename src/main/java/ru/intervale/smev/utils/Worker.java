@@ -1,6 +1,6 @@
 package ru.intervale.smev.utils;
 
-import lombok.extern.log4j.Log4j2;
+import lombok.extern.slf4j.Slf4j;
 import ru.intervale.smev.model.InformationRequest;
 import ru.intervale.smev.model.InformationResponse;
 import ru.intervale.smev.model.Penalty;
@@ -10,7 +10,7 @@ import ru.intervale.smev.repo.PenaltyRepo;
 
 import java.util.concurrent.Callable;
 
-@Log4j2
+@Slf4j
 public class Worker implements Callable<InformationResponse> {
 
     private final InfoRequestRepo infoRequestRepo;
@@ -28,14 +28,14 @@ public class Worker implements Callable<InformationResponse> {
 
     @Override
     public InformationResponse call()  {
-        log.info("Worker in progress..");
+        log.warn("Worker in progress..");
         infoRequestRepo.save(informationRequest);
-        log.info("Information request: " + informationRequest);
-        System.out.println("Worker" + Thread.currentThread().getName());
+        log.debug("Information request: " + informationRequest);
+        log.debug("Worker" + Thread.currentThread().getName());
 
         InformationRequest temp = infoRequestRepo.findByVehicleCertificate(informationRequest.getVehicleCertificate());
 
-        log.info("InformationRequest in call method is: " + temp);
+        log.debug("InformationRequest in call method is: " + temp);
 
         Penalty penalty = penaltyRepo.findPenaltyByVehicleCertificate(temp.getVehicleCertificate());
         InformationResponse tempResponse = new InformationResponse();
@@ -49,7 +49,7 @@ public class Worker implements Callable<InformationResponse> {
         tempResponse.setPaymentAmount(penalty.getPaymentAmount());
 
         infoResponseRepo.save(tempResponse);
-        System.out.println("Worker stopped!");
+        log.warn("Worker stopped!");
         InformationResponse response = infoResponseRepo.getInformationResponseByVehicleCertificate(informationRequest.getVehicleCertificate());
 
         infoRequestRepo.delete(informationRequest);
