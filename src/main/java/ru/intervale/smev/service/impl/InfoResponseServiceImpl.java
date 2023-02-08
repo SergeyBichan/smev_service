@@ -2,6 +2,7 @@ package ru.intervale.smev.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import ru.intervale.smev.controller.exception.ApiRequestException;
 import ru.intervale.smev.model.InformationRequest;
 import ru.intervale.smev.model.InformationResponse;
 import ru.intervale.smev.repo.InfoRequestRepo;
@@ -25,10 +26,29 @@ public class InfoResponseServiceImpl implements InfoResponseService {
 
 
     @Override
-    public InformationResponse getInfoAboutPenalty(InformationRequest request) throws ExecutionException, InterruptedException {
+    public InformationResponse getInfoAboutPenalty(InformationRequest request) throws
+            ApiRequestException {
+        try {
+            infoRequestRepo.save(request);
+        } catch (ApiRequestException e) {
+            throw new ApiRequestException("Not find!");
+        }
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException("Interrupted exception!");
+        }
         System.out.println("main " + Thread.currentThread().getName());
         Worker worker = new Worker(infoRequestRepo,penaltyRepo,infoResponseRepo,request );
         ExecutorService service = Executors.newFixedThreadPool(3);
         Future<InformationResponse> future = service.submit(worker);
-        return future.get();
+
+        InformationResponse response;
+        try {
+            response = future.get();
+        } catch (InterruptedException | ExecutionException e) {
+            throw new ApiRequestException("Can't find any record about this certificate!");
+        }
+
+        return response;
 }}

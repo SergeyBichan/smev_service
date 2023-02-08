@@ -1,6 +1,7 @@
 package ru.intervale.smev.utils;
 
 import lombok.extern.slf4j.Slf4j;
+import ru.intervale.smev.controller.exception.ApiRequestException;
 import ru.intervale.smev.model.InformationRequest;
 import ru.intervale.smev.model.InformationResponse;
 import ru.intervale.smev.model.Penalty;
@@ -27,13 +28,20 @@ public class Worker implements Callable<InformationResponse> {
     }
 
     @Override
-    public InformationResponse call()  {
+    public InformationResponse call() throws ApiRequestException {
         log.warn("Worker in progress..");
-        infoRequestRepo.save(informationRequest);
         log.debug("Information request: " + informationRequest);
         log.debug("Worker" + Thread.currentThread().getName());
 
-        InformationRequest temp = infoRequestRepo.findByVehicleCertificate(informationRequest.getVehicleCertificate());
+
+        InformationRequest temp;
+        try {
+            temp = infoRequestRepo.findByVehicleCertificate(
+                    informationRequest.getVehicleCertificate()
+            );
+        } catch (ApiRequestException e) {
+            throw new ApiRequestException("Can't find any record about this certificate!");
+        }
 
         log.debug("InformationRequest in call method is: " + temp);
 
@@ -50,7 +58,12 @@ public class Worker implements Callable<InformationResponse> {
 
         infoResponseRepo.save(tempResponse);
         log.warn("Worker stopped!");
-        InformationResponse response = infoResponseRepo.getInformationResponseByVehicleCertificate(informationRequest.getVehicleCertificate());
+        InformationResponse response;
+        try {
+            response = infoResponseRepo.getInformationResponseByVehicleCertificate(informationRequest.getVehicleCertificate());
+        } catch (Exception e) {
+            throw new ApiRequestException("Can't find any record about this certificate!");
+        }
 
         infoRequestRepo.delete(informationRequest);
         infoResponseRepo.delete(response);

@@ -6,9 +6,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import ru.intervale.smev.controller.exception.ApiRequestException;
 import ru.intervale.smev.model.InformationRequest;
 import ru.intervale.smev.model.InformationResponse;
 import ru.intervale.smev.service.impl.InfoResponseServiceImpl;
+
+import java.util.Objects;
+import java.util.concurrent.ExecutionException;
 
 
 @RequiredArgsConstructor
@@ -18,7 +22,9 @@ public class SmevController {
 
 
     @PostMapping("/info")
-    public ResponseEntity<InformationResponse> sendRequestFromAdapter(@RequestBody InformationRequest request) throws Exception {
-        return new ResponseEntity<>(infoResponseServiceImpl.getInfoAboutPenalty(request), HttpStatus.OK);
+    public ResponseEntity<InformationResponse> sendRequestFromAdapter
+            (@RequestBody InformationRequest request){
+        InformationResponse response = infoResponseServiceImpl.getInfoAboutPenalty(request);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 }
