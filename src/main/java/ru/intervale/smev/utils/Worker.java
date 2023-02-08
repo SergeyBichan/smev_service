@@ -45,7 +45,9 @@ public class Worker implements Callable<InformationResponse> {
 
         log.debug("InformationRequest in call method is: " + temp);
 
-        Penalty penalty = penaltyRepo.findPenaltyByVehicleCertificate(temp.getVehicleCertificate());
+        Penalty penalty = penaltyRepo.findPenaltyByVehicleCertificate(
+                temp.getVehicleCertificate()
+        );
         InformationResponse tempResponse = new InformationResponse();
 
         tempResponse.setVehicleCertificate(penalty.getVehicleCertificate());
@@ -59,12 +61,9 @@ public class Worker implements Callable<InformationResponse> {
         infoResponseRepo.save(tempResponse);
         log.warn("Worker stopped!");
         InformationResponse response;
-        try {
-            response = infoResponseRepo.getInformationResponseByVehicleCertificate(informationRequest.getVehicleCertificate());
-        } catch (Exception e) {
-            throw new ApiRequestException("Can't find any record about this certificate!");
-        }
-
+        response = infoResponseRepo.getInformationResponseByVehicleCertificate(
+                informationRequest.getVehicleCertificate()
+        );
         infoRequestRepo.delete(informationRequest);
         infoResponseRepo.delete(response);
         return response;

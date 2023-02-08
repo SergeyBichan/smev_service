@@ -759,3 +759,94 @@ ru.intervale.smev.controller.exception.ApiRequestException: Can't find any recor
 [32m2023-02-08 12:49:17.442[0;39m [DEBUG] ru.intervale.smev.utils.Worker [pool-1-thread-1] Information request: InformationRequest(id=1, vehicleCertificate=18657493)
 [32m2023-02-08 12:49:17.442[0;39m [DEBUG] ru.intervale.smev.utils.Worker [pool-1-thread-1] Workerpool-1-thread-1
 [32m2023-02-08 12:49:17.512[0;39m [DEBUG] ru.intervale.smev.utils.Worker [pool-1-thread-1] InformationRequest in call method is: InformationRequest(id=1, vehicleCertificate=18657493)
+[32m2023-02-08 12:51:28.041[0;39m [WARN] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[32m2023-02-08 12:51:34.780[0;39m [WARN] ru.intervale.smev.utils.Worker [pool-1-thread-1] Worker in progress..
+[32m2023-02-08 12:51:34.791[0;39m [DEBUG] ru.intervale.smev.utils.Worker [pool-1-thread-1] Information request: InformationRequest(id=1, vehicleCertificate=18657493)
+[32m2023-02-08 12:51:34.792[0;39m [DEBUG] ru.intervale.smev.utils.Worker [pool-1-thread-1] Workerpool-1-thread-1
+[32m2023-02-08 12:51:34.875[0;39m [DEBUG] ru.intervale.smev.utils.Worker [pool-1-thread-1] InformationRequest in call method is: InformationRequest(id=1, vehicleCertificate=18657493)
+[32m2023-02-08 12:51:39.400[0;39m [WARN] ru.intervale.smev.utils.Worker [pool-2-thread-1] Worker in progress..
+[32m2023-02-08 12:51:39.400[0;39m [DEBUG] ru.intervale.smev.utils.Worker [pool-2-thread-1] Information request: InformationRequest(id=2, vehicleCertificate=18657494)
+[32m2023-02-08 12:51:39.400[0;39m [DEBUG] ru.intervale.smev.utils.Worker [pool-2-thread-1] Workerpool-2-thread-1
+[32m2023-02-08 12:51:39.403[0;39m [DEBUG] ru.intervale.smev.utils.Worker [pool-2-thread-1] InformationRequest in call method is: InformationRequest(id=2, vehicleCertificate=18657494)
+[32m2023-02-08 12:51:39.433[0;39m [WARN] ru.intervale.smev.utils.Worker [pool-2-thread-1] Worker stopped!
+[32m2023-02-08 13:22:29.602[0;39m [WARN] ru.intervale.smev.utils.Worker [pool-3-thread-1] Worker in progress..
+[32m2023-02-08 13:22:29.602[0;39m [DEBUG] ru.intervale.smev.utils.Worker [pool-3-thread-1] Information request: InformationRequest(id=3, vehicleCertificate=18657494)
+[32m2023-02-08 13:22:29.602[0;39m [DEBUG] ru.intervale.smev.utils.Worker [pool-3-thread-1] Workerpool-3-thread-1
+[32m2023-02-08 13:22:29.604[0;39m [DEBUG] ru.intervale.smev.utils.Worker [pool-3-thread-1] InformationRequest in call method is: InformationRequest(id=3, vehicleCertificate=18657494)
+[32m2023-02-08 13:22:29.606[0;39m [WARN] ru.intervale.smev.utils.Worker [pool-3-thread-1] Worker stopped!
+[32m2023-02-08 13:34:42.279[0;39m [WARN] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[32m2023-02-08 13:34:50.674[0;39m [WARN] ru.intervale.smev.utils.Worker [pool-1-thread-1] Worker in progress..
+[32m2023-02-08 13:34:50.686[0;39m [DEBUG] ru.intervale.smev.utils.Worker [pool-1-thread-1] Information request: InformationRequest(id=1, vehicleCertificate=123456)
+[32m2023-02-08 13:34:50.687[0;39m [DEBUG] ru.intervale.smev.utils.Worker [pool-1-thread-1] Workerpool-1-thread-1
+[32m2023-02-08 13:34:50.792[0;39m [DEBUG] ru.intervale.smev.utils.Worker [pool-1-thread-1] InformationRequest in call method is: InformationRequest(id=1, vehicleCertificate=123456)
+[32m2023-02-08 13:34:50.809[0;39m [WARN] ru.intervale.smev.utils.Worker [pool-1-thread-1] Worker stopped!
+[32m2023-02-08 13:34:59.355[0;39m [WARN] ru.intervale.smev.utils.Worker [pool-2-thread-1] Worker in progress..
+[32m2023-02-08 13:34:59.356[0;39m [DEBUG] ru.intervale.smev.utils.Worker [pool-2-thread-1] Information request: InformationRequest(id=2, vehicleCertificate=123465)
+[32m2023-02-08 13:34:59.356[0;39m [DEBUG] ru.intervale.smev.utils.Worker [pool-2-thread-1] Workerpool-2-thread-1
+[32m2023-02-08 13:34:59.361[0;39m [DEBUG] ru.intervale.smev.utils.Worker [pool-2-thread-1] InformationRequest in call method is: InformationRequest(id=2, vehicleCertificate=123465)
+[32m2023-02-08 13:35:31.156[0;39m [WARN] ru.intervale.smev.utils.Worker [pool-3-thread-1] Worker in progress..
+[32m2023-02-08 13:35:31.156[0;39m [DEBUG] ru.intervale.smev.utils.Worker [pool-3-thread-1] Information request: InformationRequest(id=3, vehicleCertificate=123465)
+[32m2023-02-08 13:35:31.156[0;39m [DEBUG] ru.intervale.smev.utils.Worker [pool-3-thread-1] Workerpool-3-thread-1
+[32m2023-02-08 13:39:48.437[0;39m [WARN] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[32m2023-02-08 13:39:53.757[0;39m [WARN] ru.intervale.smev.utils.Worker [pool-1-thread-1] Worker in progress..
+[32m2023-02-08 13:39:53.767[0;39m [DEBUG] ru.intervale.smev.utils.Worker [pool-1-thread-1] Information request: InformationRequest(id=1, vehicleCertificate=123465)
+[32m2023-02-08 13:39:53.767[0;39m [DEBUG] ru.intervale.smev.utils.Worker [pool-1-thread-1] Workerpool-1-thread-1
+[32m2023-02-08 13:39:53.857[0;39m [DEBUG] ru.intervale.smev.utils.Worker [pool-1-thread-1] InformationRequest in call method is: InformationRequest(id=1, vehicleCertificate=123465)
+[32m2023-02-08 14:19:10.955[0;39m [WARN] ru.intervale.smev.utils.Worker [pool-4-thread-1] Worker in progress..
+[32m2023-02-08 14:19:10.956[0;39m [DEBUG] ru.intervale.smev.utils.Worker [pool-4-thread-1] Information request: InformationRequest(id=4, vehicleCertificate=12346)
+[32m2023-02-08 14:19:10.956[0;39m [DEBUG] ru.intervale.smev.utils.Worker [pool-4-thread-1] Workerpool-4-thread-1
+[32m2023-02-08 14:19:10.958[0;39m [DEBUG] ru.intervale.smev.utils.Worker [pool-4-thread-1] InformationRequest in call method is: InformationRequest(id=4, vehicleCertificate=12346)
+[32m2023-02-08 14:19:10.967[0;39m [ERROR] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] [http-nio-8082-exec-8] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.util.concurrent.ExecutionException: java.lang.NullPointerException] with root cause
+java.lang.NullPointerException: null
+	at ru.intervale.smev.utils.Worker.call(Worker.java:42)
+	at ru.intervale.smev.utils.Worker.call(Worker.java:13)
+	at java.base/java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:264)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+[32m2023-02-08 14:19:49.667[0;39m [WARN] ru.intervale.smev.utils.Worker [pool-5-thread-1] Worker in progress..
+[32m2023-02-08 14:19:49.668[0;39m [DEBUG] ru.intervale.smev.utils.Worker [pool-5-thread-1] Information request: InformationRequest(id=5, vehicleCertificate=12)
+[32m2023-02-08 14:19:49.668[0;39m [DEBUG] ru.intervale.smev.utils.Worker [pool-5-thread-1] Workerpool-5-thread-1
+[32m2023-02-08 14:19:49.670[0;39m [DEBUG] ru.intervale.smev.utils.Worker [pool-5-thread-1] InformationRequest in call method is: InformationRequest(id=5, vehicleCertificate=12)
+[32m2023-02-08 14:19:49.674[0;39m [ERROR] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] [http-nio-8082-exec-9] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.util.concurrent.ExecutionException: java.lang.NullPointerException] with root cause
+java.lang.NullPointerException: null
+	at ru.intervale.smev.utils.Worker.call(Worker.java:42)
+	at ru.intervale.smev.utils.Worker.call(Worker.java:13)
+	at java.base/java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:264)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+[32m2023-02-08 14:29:07.478[0;39m [WARN] ru.intervale.smev.utils.Worker [pool-6-thread-1] Worker in progress..
+[32m2023-02-08 14:29:07.478[0;39m [DEBUG] ru.intervale.smev.utils.Worker [pool-6-thread-1] Information request: InformationRequest(id=6, vehicleCertificate=123456)
+[32m2023-02-08 14:29:07.479[0;39m [DEBUG] ru.intervale.smev.utils.Worker [pool-6-thread-1] Workerpool-6-thread-1
+[32m2023-02-08 14:29:07.481[0;39m [DEBUG] ru.intervale.smev.utils.Worker [pool-6-thread-1] InformationRequest in call method is: InformationRequest(id=6, vehicleCertificate=123456)
+[32m2023-02-08 14:29:07.485[0;39m [ERROR] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] [http-nio-8082-exec-10] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.util.concurrent.ExecutionException: java.lang.NullPointerException] with root cause
+java.lang.NullPointerException: null
+	at ru.intervale.smev.utils.Worker.call(Worker.java:42)
+	at ru.intervale.smev.utils.Worker.call(Worker.java:13)
+	at java.base/java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:264)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+[32m2023-02-08 14:29:44.810[0;39m [WARN] ru.intervale.smev.utils.Worker [pool-2-thread-1] Worker in progress..
+[32m2023-02-08 14:29:44.810[0;39m [DEBUG] ru.intervale.smev.utils.Worker [pool-2-thread-1] Information request: InformationRequest(id=2, vehicleCertificate=123456)
+[32m2023-02-08 14:29:44.810[0;39m [DEBUG] ru.intervale.smev.utils.Worker [pool-2-thread-1] Workerpool-2-thread-1
+[32m2023-02-08 14:29:44.810[0;39m [DEBUG] ru.intervale.smev.utils.Worker [pool-2-thread-1] InformationRequest in call method is: InformationRequest(id=2, vehicleCertificate=123456)
+[32m2023-02-08 14:29:44.830[0;39m [WARN] ru.intervale.smev.utils.Worker [pool-2-thread-1] Worker stopped!
+[32m2023-02-08 16:28:31.111[0;39m [WARN] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[32m2023-02-08 16:28:36.783[0;39m [WARN] ru.intervale.smev.utils.Worker [pool-1-thread-1] Worker in progress..
+[32m2023-02-08 16:28:36.793[0;39m [DEBUG] ru.intervale.smev.utils.Worker [pool-1-thread-1] Information request: InformationRequest(id=1, vehicleCertificate=123465)
+[32m2023-02-08 16:28:36.793[0;39m [DEBUG] ru.intervale.smev.utils.Worker [pool-1-thread-1] Workerpool-1-thread-1
+[32m2023-02-08 16:28:36.883[0;39m [DEBUG] ru.intervale.smev.utils.Worker [pool-1-thread-1] InformationRequest in call method is: InformationRequest(id=1, vehicleCertificate=123465)
+[32m2023-02-08 16:28:47.436[0;39m [WARN] ru.intervale.smev.utils.Worker [pool-2-thread-1] Worker in progress..
+[32m2023-02-08 16:28:47.437[0;39m [DEBUG] ru.intervale.smev.utils.Worker [pool-2-thread-1] Information request: InformationRequest(id=2, vehicleCertificate=123456)
+[32m2023-02-08 16:28:47.438[0;39m [DEBUG] ru.intervale.smev.utils.Worker [pool-2-thread-1] Workerpool-2-thread-1
+[32m2023-02-08 16:28:47.442[0;39m [DEBUG] ru.intervale.smev.utils.Worker [pool-2-thread-1] InformationRequest in call method is: InformationRequest(id=2, vehicleCertificate=123456)
+[32m2023-02-08 16:28:47.490[0;39m [WARN] ru.intervale.smev.utils.Worker [pool-2-thread-1] Worker stopped!
+[32m2023-02-08 16:29:34.023[0;39m [WARN] ru.intervale.smev.utils.Worker [pool-3-thread-1] Worker in progress..
+[32m2023-02-08 16:29:34.023[0;39m [DEBUG] ru.intervale.smev.utils.Worker [pool-3-thread-1] Information request: InformationRequest(id=3, vehicleCertificate=12345)
+[32m2023-02-08 16:29:34.023[0;39m [DEBUG] ru.intervale.smev.utils.Worker [pool-3-thread-1] Workerpool-3-thread-1
+[32m2023-02-08 16:29:34.023[0;39m [DEBUG] ru.intervale.smev.utils.Worker [pool-3-thread-1] InformationRequest in call method is: InformationRequest(id=3, vehicleCertificate=12345)

@@ -28,13 +28,9 @@ public class InfoResponseServiceImpl implements InfoResponseService {
     @Override
     public InformationResponse getInfoAboutPenalty(InformationRequest request) throws
             ApiRequestException {
-        try {
             infoRequestRepo.save(request);
-        } catch (ApiRequestException e) {
-            throw new ApiRequestException("Not find!");
-        }
         try {
-            Thread.sleep(3000);
+            Thread.sleep(1500);
         } catch (InterruptedException e) {
             throw new RuntimeException("Interrupted exception!");
         }
