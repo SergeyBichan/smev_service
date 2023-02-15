@@ -20,11 +20,6 @@ target/
 *.iml
 *.ipr
 
-
-# Ignore Logs
-logs
-*.log
-
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/
@@ -37,3 +32,4 @@ build/
 
 ### VS Code ###
 .vscode/
+/src/main/java/ru/intervale/smev/logs/
