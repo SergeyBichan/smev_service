@@ -7,4 +7,6 @@ import java.util.concurrent.ExecutionException;
 
 public interface InfoResponseService {
     InformationResponse getInfoAboutPenalty(InformationRequest request) throws ExecutionException, InterruptedException;
+    void save(InformationRequest request);
+    void waitToDoSomething();
 }

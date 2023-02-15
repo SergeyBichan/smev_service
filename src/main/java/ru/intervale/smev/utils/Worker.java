@@ -1,6 +1,8 @@
 package ru.intervale.smev.utils;
 
+import lombok.*;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.transaction.annotation.Transactional;
 import ru.intervale.smev.controller.exception.ApiRequestException;
 import ru.intervale.smev.model.InformationRequest;
 import ru.intervale.smev.model.InformationResponse;
@@ -9,7 +11,6 @@ import ru.intervale.smev.repo.InfoRequestRepo;
 import ru.intervale.smev.repo.InfoResponseRepo;
 import ru.intervale.smev.repo.PenaltyRepo;
 
-import javax.transaction.Transactional;
 import java.util.concurrent.Callable;
 
 @Slf4j
@@ -28,6 +29,7 @@ public class Worker implements Callable<InformationResponse>, WorkerBehavior {
         this.informationRequest = informationRequest;
     }
 
+    @Transactional
     @Override
     public InformationResponse call() throws ApiRequestException {
         log.warn("Worker in progress..");
@@ -42,6 +44,7 @@ public class Worker implements Callable<InformationResponse>, WorkerBehavior {
         Penalty penalty = penaltyRepo.findPenaltyByVehicleCertificate(
                 temp.getVehicleCertificate()
         );
+
         InformationResponse tempResponse = InformationResponse.builder()
                 .vehicleCertificate(penalty.getVehicleCertificate())
                 .accruedAmount(penalty.getAccruedAmount())
@@ -55,8 +58,14 @@ public class Worker implements Callable<InformationResponse>, WorkerBehavior {
         log.warn("Worker stopped!");
         InformationResponse response =
                 infoResponseRepo.getInformationResponseByVehicleCertificate(informationRequest.getVehicleCertificate());
-        infoRequestRepo.delete(informationRequest);
-        infoResponseRepo.delete(response);
+
+        delete(informationRequest);
+
+        try {
+            infoResponseRepo.delete(response);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
         return response;
     }
 
@@ -70,14 +79,14 @@ public class Worker implements Callable<InformationResponse>, WorkerBehavior {
     }
 
     @Override
-    public void delete(Object obj) {
-        InformationRequest request = (InformationRequest) obj;
+    public void delete(InformationRequest request) {
         try {
             infoRequestRepo.delete(request);
         } catch (Exception e) {
             throw new RuntimeException("Can't delete this record from DB!");
         }
     }
+
 
     private InformationRequest getInformationRequest() {
         InformationRequest temp;

@@ -9,5 +9,5 @@ import ru.intervale.smev.model.InformationResponse;
 public interface WorkerBehavior {
     @Transactional
     void save(InformationResponse response);
-    void delete(Object obj);
+    void delete(InformationRequest request);
 }
