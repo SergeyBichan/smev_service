@@ -11,9 +11,6 @@ import ru.intervale.smev.model.InformationRequest;
 import ru.intervale.smev.model.InformationResponse;
 import ru.intervale.smev.service.impl.InfoResponseServiceImpl;
 
-import java.util.Objects;
-import java.util.concurrent.ExecutionException;
-
 
 @RequiredArgsConstructor
 @RestController
@@ -23,7 +20,7 @@ public class SmevController {
 
     @PostMapping("/info")
     public ResponseEntity<InformationResponse> sendRequestFromAdapter
-            (@RequestBody InformationRequest request){
+            (@RequestBody InformationRequest request) throws ApiRequestException{
         InformationResponse response = infoResponseServiceImpl.getInfoAboutPenalty(request);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }

@@ -40,7 +40,8 @@ public class Worker implements Callable<InformationResponse> {
                     informationRequest.getVehicleCertificate()
             );
         } catch (ApiRequestException e) {
-            throw new ApiRequestException("Can't find any record about this certificate!");
+            log.warn("Worker stopped!");
+            throw new ApiRequestException("Can't find any record about this certificate! from Worker");
         }
 
         log.debug("InformationRequest in call method is: " + temp);

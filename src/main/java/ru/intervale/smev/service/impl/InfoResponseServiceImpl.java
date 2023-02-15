@@ -1,6 +1,7 @@
 package ru.intervale.smev.service.impl;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import ru.intervale.smev.controller.exception.ApiRequestException;
 import ru.intervale.smev.model.InformationRequest;
@@ -17,6 +18,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class InfoResponseServiceImpl implements InfoResponseService {
@@ -34,7 +36,7 @@ public class InfoResponseServiceImpl implements InfoResponseService {
         } catch (InterruptedException e) {
             throw new RuntimeException("Interrupted exception!");
         }
-        System.out.println("main " + Thread.currentThread().getName());
+        log.warn("main " + Thread.currentThread().getId());
         Worker worker = new Worker(infoRequestRepo,penaltyRepo,infoResponseRepo,request );
         ExecutorService service = Executors.newFixedThreadPool(3);
         Future<InformationResponse> future = service.submit(worker);
@@ -43,7 +45,10 @@ public class InfoResponseServiceImpl implements InfoResponseService {
         try {
             response = future.get();
         } catch (InterruptedException | ExecutionException e) {
-            throw new ApiRequestException("Can't find any record about this certificate!");
+            ApiRequestException apiRequestException =
+                    new ApiRequestException("Can't find any record about this certificate!");
+            log.error(apiRequestException.getMessage());
+            throw new ApiRequestException(apiRequestException.getMessage());
         }
 
         return response;
