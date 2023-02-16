@@ -1,0 +1,78 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: somebody
+      changes:
+        - createTable:
+            tableName: information_request
+            columns:
+              - column:
+                  name: id
+                  type: integer
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: information_request
+                  type: varchar(255)
+                  constraints:
+                    unique: true
+        - createTable:
+            tableName: information_response
+            columns:
+              - column:
+                  name: id
+                  type: integer
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: accrued_amount
+                  type: integer
+              - column:
+                  name: articlekoap
+                  type: varchar(255)
+              - column:
+                  name: date
+                  type: date
+              - column:
+                  name: decree_number
+                  type: bigint
+              - column:
+                  name: payment_amount
+                  type: integer
+              - column:
+                  name: vehicle_certificate
+                  type: varchar(255)
+
+        - createTable:
+            tableName: penalties
+            columns:
+              - column:
+                  name: id
+                  type: integer
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: accrued_amount
+                  type: integer
+              - column:
+                  name: articlekoap
+                  type: varchar(255)
+              - column:
+                  name: date
+                  type: date
+              - column:
+                  name: decree_number
+                  type: bigint
+              - column:
+                  name: payment_amount
+                  type: integer
+              - column:
+                  name: vehicle_certificate
+                  type: varchar(255)
+  - include:
+      file: db/changelog/sqlSchema.sql
+
+
